@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklists de Cerveja</title>
+  <style>
+    :root{
+      --bg:#0f1115;
+      --muted:#a9b0c2;
+      --text:#eef1f7;
+      --accent:#ff7a18;
+      --accent2:#ffb26b;
+      --line:#2a2f3b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(255,122,24,.18), transparent 60%),
+                  radial-gradient(900px 700px at 85% 20%, rgba(255,178,107,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.35;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 40px}
+    header{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+    h1{font-size:24px;margin:0;letter-spacing:.2px}
+    .sub{color:var(--muted);font-size:13px;margin-top:6px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+    @media (min-width: 860px){.grid{grid-template-columns: 1fr 1fr}}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 16px 14px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.25);
+    }
+    .card h2{margin:0 0 6px;font-size:16px;letter-spacing:.2px}
+    .meta{color:var(--muted);font-size:12.5px;margin:0 0 12px}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    a.link{
+      color:var(--accent2);
+      text-decoration:none;
+      font-weight:650;
+      border:1px solid rgba(255,178,107,.28);
+      background: rgba(255,178,107,.06);
+      padding:8px 10px;border-radius:10px;
+    }
+    a.link:hover{filter:brightness(1.07)}
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+      padding:6px 10px;border-radius:999px;
+    }
+    .foot{margin-top:18px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Checklists de Cerveja</h1>
+        <div class="sub">Abra no celular, marque etapas e imprima em PDF. Para adicionar novos estilos, substitua o HTML na pasta <strong>checklists</strong>.</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Red Ale (20 L)</h2>
+        <p class="meta">Fundo falso • Espaço morto ~5 L • Fervura 30 min • Aeração por nebulização</p>
+        <div class="row">
+          <span class="tag">Completo</span>
+          <a class="link" href="checklists/red-ale-20l.html">Abrir checklist</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Pilsen (20 L)</h2>
+        <p class="meta">Página reservada para checklist futuro</p>
+        <div class="row">
+          <span class="tag">Reservado</span>
+          <a class="link" href="checklists/pilsen-20l.html">Abrir página</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Lager (20 L)</h2>
+        <p class="meta">Página reservada para checklist futuro</p>
+        <div class="row">
+          <span class="tag">Reservado</span>
+          <a class="link" href="checklists/lager-20l.html">Abrir página</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>IPA (20 L)</h2>
+        <p class="meta">Página reservada para checklist futuro</p>
+        <div class="row">
+          <span class="tag">Reservado</span>
+          <a class="link" href="checklists/ipa-20l.html">Abrir página</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Stout (20 L)</h2>
+        <p class="meta">Página reservada para checklist futuro</p>
+        <div class="row">
+          <span class="tag">Reservado</span>
+          <a class="link" href="checklists/stout-20l.html">Abrir página</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Weiss (20 L)</h2>
+        <p class="meta">Página reservada para checklist futuro</p>
+        <div class="row">
+          <span class="tag">Reservado</span>
+          <a class="link" href="checklists/weiss-20l.html">Abrir página</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      Você pode manter todos os checklists no mesmo link. Quando eu gerar um novo, é só substituir o arquivo correspondente dentro de <strong>checklists</strong>.
+    </div>
+  </div>
+</body>
+</html>
