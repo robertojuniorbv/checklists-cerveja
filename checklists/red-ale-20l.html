@@ -1,356 +1,92 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Checklist de Brassagem — Red Ale (20 L)</title>
-  <style>
-    :root{
-      --bg:#0f1115;
-      --card:#171a21;
-      --muted:#a9b0c2;
-      --text:#eef1f7;
-      --accent:#ff7a18;
-      --accent2:#ffb26b;
-      --line:#2a2f3b;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, "Noto Sans", "Liberation Sans", sans-serif;
-      background: radial-gradient(1200px 800px at 15% 10%, rgba(255,122,24,.18), transparent 60%),
-                  radial-gradient(900px 700px at 85% 20%, rgba(255,178,107,.10), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.35;
-    }
-    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 40px}
-    header{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
-    .title{display:flex;flex-direction:column;gap:6px}
-    h1{font-size:24px;margin:0;letter-spacing:.2px}
-    .sub{color:var(--muted);font-size:13px}
-    .badge-row{display:flex;flex-wrap:wrap;gap:10px}
-    .badge{
-      border:1px solid rgba(255,122,24,.35);
-      color:var(--accent2);
-      background: rgba(255,122,24,.08);
-      padding:6px 10px;border-radius:999px;
-      font-size:12px;white-space:nowrap;
-    }
-    .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    button{
-      cursor:pointer;border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
-      padding:10px 12px;border-radius:10px;
-      font-weight:600;font-size:13px;
-    }
-    button.primary{
-      border-color: rgba(255,122,24,.45);
-      background: rgba(255,122,24,.14);
-    }
-    button:hover{filter:brightness(1.07)}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    @media (min-width: 860px){.grid{grid-template-columns: 1fr 1fr}}
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 16px 12px;
-      box-shadow: 0 12px 28px rgba(0,0,0,.25);
-    }
-    .card h2{
-      margin:0 0 10px;font-size:16px;letter-spacing:.2px;
-      display:flex;align-items:center;gap:10px;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(255,122,24,.12);
-      flex:0 0 auto;
-    }
-    .meta{
-      display:grid;grid-template-columns: 1fr 1fr;gap:10px;
-      margin-top:8px;padding-top:10px;
-      border-top:1px dashed rgba(255,255,255,.08);
-    }
-    .k{color:var(--muted);font-size:12px;margin:0 0 2px}
-    .v{margin:0;font-size:14px;font-weight:650}
-    .list{display:flex;flex-direction:column;gap:8px;margin:8px 0 0;padding:0;list-style:none}
-    .item{
-      display:flex;gap:10px;align-items:flex-start;
-      padding:10px 10px;border:1px solid rgba(255,255,255,.06);
-      background: rgba(0,0,0,.18);border-radius:12px;
-    }
-    input[type="checkbox"]{margin-top:2px;width:18px;height:18px;accent-color: var(--accent);flex:0 0 auto}
-    .txt{flex:1 1 auto}
-    .txt .t{margin:0;font-size:13.5px;font-weight:600}
-    .txt .d{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
-    .foot{margin-top:14px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
-    .progress{display:flex;align-items:center;gap:10px;margin-top:8px;color:var(--muted);font-size:12px}
-    .bar{flex:1 1 auto;height:10px;border-radius:999px;background: rgba(255,255,255,.08);overflow:hidden;border:1px solid rgba(255,255,255,.06)}
-    .bar > div{height:100%;width:0%;background: linear-gradient(90deg, var(--accent), var(--accent2))}
-    .pct{min-width:54px;text-align:right;color:var(--text);font-weight:650}
-    details{
-      margin-top:10px;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:12px;
-      background: rgba(0,0,0,.14);
-      padding:10px 12px;
-    }
-    summary{cursor:pointer;font-weight:650;color:var(--text)}
-    .small{color:var(--muted);font-size:12.5px;margin:8px 0 0}
-    @media print{
-      body{background:#fff;color:#000}
-      .wrap{padding:0}
-      .card{box-shadow:none;background:#fff;border:1px solid #ddd}
-      .badge{border-color:#ddd;background:#fff;color:#000}
-      .sub,.k,.d,.foot,.small{color:#333}
-      button,.actions{display:none !important}
-      .item{background:#fff;border:1px solid #e5e5e5}
-      .dot{box-shadow:none}
-      details{border:1px solid #ddd;background:#fff}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checklist Red Ale Rubi – 20 L</title>
+<style>
+:root{
+ --bg:#0f1115;--card:#171a21;--text:#eef1f7;--muted:#a9b0c2;
+ --accent:#b11226;--line:#2a2f3b;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+ background:radial-gradient(900px 600px at 20% 10%, rgba(177,18,38,.25), transparent 60%),var(--bg);
+ color:var(--text)
+}
+.wrap{max-width:980px;margin:auto;padding:24px}
+h1{margin:0 0 6px;font-size:24px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:16px}
+.card{
+ background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+ border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px
+}
+h2{margin:0 0 10px;font-size:16px}
+.list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.item{display:flex;gap:10px;align-items:flex-start;
+ background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.06);
+ border-radius:12px;padding:10px}
+input{accent-color:var(--accent);width:18px;height:18px;margin-top:2px}
+.t{margin:0;font-weight:600;font-size:13.5px}
+.d{margin:2px 0 0;color:var(--muted);font-size:12.5px}
+.footer{margin-top:18px;color:var(--muted);font-size:12px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;
+ background:rgba(177,18,38,.15);border:1px solid rgba(177,18,38,.45);font-size:12px;margin-right:6px}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="title">
-        <h1>Checklist de Brassagem — Red Ale (20 L)</h1>
-        <div class="sub">Single vessel • Caldeirão N36 • Fundo falso • Espaço morto ~5 L • Clima quente (Norte)</div>
-        <div class="badge-row">
-          <div class="badge">OG alvo: 1.050 (1.048–1.052)</div>
-          <div class="badge">FG esperada: 1.012 (1.011–1.013)</div>
-          <div class="badge">Fervura: 30 min</div>
-          <div class="badge">IBU: ~22</div>
-        </div>
-      </div>
-      <div class="actions">
-        <button class="primary" id="btnPrint" type="button">Imprimir / PDF</button>
-        <button id="btnReset" type="button">Zerar marcações</button>
-      </div>
-    </header>
+<div class="wrap">
+<h1>Checklist de Brassagem – Red Ale Rubi</h1>
+<div class="sub">20 L • Fundo falso • Fervura 30 min • Cor vermelho rubi</div>
 
-    <section class="card" style="margin-bottom:14px">
-      <h2><span class="dot"></span> Receita</h2>
-      <div class="meta">
-        <div>
-          <p class="k">Maltes (5,0 kg)</p>
-          <p class="v">3,50 kg Pilsen • 0,75 kg Vienna • 0,50 kg Munique • 0,25 kg Trigo</p>
-        </div>
-        <div>
-          <p class="k">Lúpulo</p>
-          <p class="v">28 g Magnum — início da fervura (30 min)</p>
-        </div>
-        <div>
-          <p class="k">Água total na panela</p>
-          <p class="v">26,0 L (considerando 5 L abaixo do fundo falso)</p>
-        </div>
-        <div>
-          <p class="k">Pré-fervura alvo</p>
-          <p class="v">23,0–23,5 L</p>
-        </div>
-        <div>
-          <p class="k">Cálcio</p>
-          <p class="v">CaCl₂: 1,3 g (0,5 g / 10 L)</p>
-        </div>
-        <div>
-          <p class="k">Fermento</p>
-          <p class="v">S-04 • Starter 1 L • aerar 1–2 min a 18 °C</p>
-        </div>
-      </div>
-      <div class="progress" aria-label="Progresso do checklist">
-        <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
-        <div class="pct" id="pct">0%</div>
-      </div>
-      <details>
-        <summary>Notas rápidas do processo (clima quente)</summary>
-        <p class="small">
-          Resfriar na panela até onde der (geralmente ~25–30 °C). Transferir por gravidade com mangueira no fundo do fermentador.
-          Fechar e deixar cair até 18 °C. Aerar com nebulização + pedra porosa por 1–2 min e inocular o starter.
-        </p>
-      </details>
-    </section>
+<div class="card">
+<div class="badge">OG ~1.050</div>
+<div class="badge">FG ~1.012</div>
+<div class="badge">SRM 12–15</div>
+<div class="badge">ABV ~5%</div>
+</div>
 
-    <div class="grid">
+<div class="card">
+<h2>Maltes</h2>
+<ul class="list">
+<li class="item"><input type="checkbox"><div><p class="t">Pilsen – 3,2 kg (≈70%)</p><p class="d">Base clara para destacar o vermelho</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Vienna – 0,6 kg (≈14%)</p><p class="d">Estrutura e profundidade maltada</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Carared – 0,4 kg (≈9%)</p><p class="d">Responsável pelo tom rubi</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Trigo claro – 0,2 kg (≈5%)</p><p class="d">Espuma e retenção</p></div></li>
+</ul>
+</div>
 
-      <!-- PREP -->
-      <section class="card">
-        <h2><span class="dot"></span> Preparação</h2>
-        <ul class="list">
-          <li class="item"><input data-k="prep1" type="checkbox"><div class="txt"><p class="t">Sanitizar fermentador, tampa e airlock</p><p class="d">Tudo vedando bem</p></div></li>
-          <li class="item"><input data-k="prep2" type="checkbox"><div class="txt"><p class="t">Conferir montagem do cesto e fundo falso</p><p class="d">Espaço morto abaixo do fundo falso ~5 L</p></div></li>
-          <li class="item"><input data-k="prep3" type="checkbox"><div class="txt"><p class="t">Separar maltes, lúpulo e CaCl₂</p><p class="d">Deixar tudo pesado e pronto</p></div></li>
-          <li class="item"><input data-k="prep4" type="checkbox"><div class="txt"><p class="t">Conferir controlador e resistência (2 kW)</p><p class="d">Programa e sensores ok</p></div></li>
-        </ul>
-      </section>
+<div class="card">
+<h2>Mostura</h2>
+<ul class="list">
+<li class="item"><input type="checkbox"><div><p class="t">Adicionar 26 L de água</p><p class="d">Considerando espaço morto do fundo falso</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Mostura a 66–67 °C por 60 min</p><p class="d">Equilíbrio entre corpo e atenuação</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Mash-out a 75 °C por 10 min</p><p class="d">Facilita drenagem</p></div></li>
+</ul>
+</div>
 
-      <!-- WATER + MASH -->
-      <section class="card">
-        <h2><span class="dot"></span> Água e mostura</h2>
-        <ul class="list">
-          <li class="item"><input data-k="mash1" type="checkbox"><div class="txt"><p class="t">Adicionar 26,0 L de água na panela</p><p class="d">Dissolver CaCl₂ (1,3 g) na água</p></div></li>
-          <li class="item"><input data-k="mash2" type="checkbox"><div class="txt"><p class="t">Estabilizar em 66–67 °C</p><p class="d">Antes de adicionar os grãos</p></div></li>
-          <li class="item"><input data-k="mash3" type="checkbox"><div class="txt"><p class="t">Adicionar os maltes aos poucos, mexendo</p><p class="d">Evitar empelotar</p></div></li>
-          <li class="item"><input data-k="mash4" type="checkbox"><div class="txt"><p class="t">Mostura 60 min a 66–67 °C</p><p class="d">Recirculação opcional</p></div></li>
-          <li class="item"><input data-k="mash5" type="checkbox"><div class="txt"><p class="t">Mash-out 10 min a 75–76 °C</p><p class="d">Depois drenar</p></div></li>
-        </ul>
-      </section>
+<div class="card">
+<h2>Fervura – 30 min</h2>
+<ul class="list">
+<li class="item"><input type="checkbox"><div><p class="t">Início da fervura</p><p class="d">Volume pré-fervura ~23 L</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Lúpulo de amargor (Magnum)</p><p class="d">≈22 IBU no início</p></div></li>
+</ul>
+</div>
 
-      <!-- DRAIN -->
-      <section class="card">
-        <h2><span class="dot"></span> Drenagem e pré-fervura</h2>
-        <ul class="list">
-          <li class="item"><input data-k="drain1" type="checkbox"><div class="txt"><p class="t">Suspender o cesto e drenar bem</p><p class="d">Prensagem: opcional e leve</p></div></li>
-          <li class="item"><input data-k="drain2" type="checkbox"><div class="txt"><p class="t">Conferir volume pré-fervura</p><p class="d">Alvo: 23,0–23,5 L</p></div></li>
-          <li class="item"><input data-k="drain3" type="checkbox"><div class="txt"><p class="t">Preparar para fervura de 30 min</p><p class="d">Panela cheia: atenção ao início</p></div></li>
-        </ul>
-      </section>
+<div class="card">
+<h2>Fermentação</h2>
+<ul class="list">
+<li class="item"><input type="checkbox"><div><p class="t">Resfriar até 18 °C</p><p class="d">Finalizar resfriamento no fermentador</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Aerar por nebulização (1–2 min)</p><p class="d">Somente antes da inoculação</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Inocular S-04 (starter 1 L)</p><p class="d">Fermentação limpa e rápida</p></div></li>
+<li class="item"><input type="checkbox"><div><p class="t">Fermentar 18–20 °C</p><p class="d">7 a 10 dias</p></div></li>
+</ul>
+</div>
 
-      <!-- BOIL -->
-      <section class="card">
-        <h2><span class="dot"></span> Fervura (30 min)</h2>
-        <ul class="list">
-          <li class="item"><input data-k="boil1" type="checkbox"><div class="txt"><p class="t">Iniciar fervura e cronometrar</p><p class="d">Tempo total: 30 min</p></div></li>
-          <li class="item"><input data-k="boil2" type="checkbox"><div class="txt"><p class="t">Minuto 0: adicionar 28 g de Magnum</p><p class="d">Objetivo: ~22 IBU</p></div></li>
-          <li class="item"><input data-k="boil3" type="checkbox"><div class="txt"><p class="t">Manter fervura estável até o fim</p><p class="d">Sem outras adições</p></div></li>
-        </ul>
-      </section>
-
-      <!-- COOL -->
-      <section class="card">
-        <h2><span class="dot"></span> Resfriamento (clima quente)</h2>
-        <ul class="list">
-          <li class="item"><input data-k="cool1" type="checkbox"><div class="txt"><p class="t">Resfriar com chiller até ~25–30 °C</p><p class="d">Água da torneira pode sair 30–35 °C</p></div></li>
-          <li class="item"><input data-k="cool2" type="checkbox"><div class="txt"><p class="t">Transferir e finalizar resfriamento no fermentador</p><p class="d">Fermentador fechado até chegar em 18 °C</p></div></li>
-        </ul>
-      </section>
-
-      <!-- TRANSFER -->
-      <section class="card">
-        <h2><span class="dot"></span> Transferência</h2>
-        <ul class="list">
-          <li class="item"><input data-k="xfer1" type="checkbox"><div class="txt"><p class="t">Transferir por gravidade com mangueira no fundo</p><p class="d">Evitar respingos</p></div></li>
-          <li class="item"><input data-k="xfer2" type="checkbox"><div class="txt"><p class="t">Ajuste fino de volume com tombada leve (se precisar)</p><p class="d">Usar filtro para segurar trub grosso</p></div></li>
-          <li class="item"><input data-k="xfer3" type="checkbox"><div class="txt"><p class="t">Fechar e aguardar cair até 18 °C</p><p class="d">Sem aeração antes da hora</p></div></li>
-        </ul>
-      </section>
-
-      <!-- AERATION SANIT -->
-      <section class="card">
-        <h2><span class="dot"></span> Aeração (sanitização)</h2>
-        <ul class="list">
-          <li class="item"><input data-k="air1" type="checkbox"><div class="txt"><p class="t">Ferver a pedra porosa</p><p class="d">Sanitização térmica</p></div></li>
-          <li class="item"><input data-k="air2" type="checkbox"><div class="txt"><p class="t">Passar álcool 70 pela mangueira e pedra</p><p class="d">Bombear álcool por todo o sistema</p></div></li>
-          <li class="item"><input data-k="air3" type="checkbox"><div class="txt"><p class="t">Purga com ar por 10–20 s</p><p class="d">Para expulsar vapor de álcool</p></div></li>
-        </ul>
-      </section>
-
-      <!-- AERATE + PITCH -->
-      <section class="card">
-        <h2><span class="dot"></span> Aerar + inocular</h2>
-        <ul class="list">
-          <li class="item"><input data-k="pitch1" type="checkbox"><div class="txt"><p class="t">Confirmar mosto a 18 °C e starter a 18 °C</p><p class="d">Evitar choque térmico</p></div></li>
-          <li class="item"><input data-k="pitch2" type="checkbox"><div class="txt"><p class="t">Aerar por nebulização 1–2 min a 18 °C</p><p class="d">Somente imediatamente antes da inoculação</p></div></li>
-          <li class="item"><input data-k="pitch3" type="checkbox"><div class="txt"><p class="t">Inocular todo o starter (1 L) com S-04</p><p class="d">Fechar e não mexer mais</p></div></li>
-          <li class="item"><input data-k="pitch4" type="checkbox"><div class="txt"><p class="t">Registrar a OG</p><p class="d">Alvo: 1.050 (1.048–1.052)</p></div></li>
-        </ul>
-      </section>
-
-      <!-- FERMENTATION -->
-      <section class="card">
-        <h2><span class="dot"></span> Fermentação (controle)</h2>
-        <ul class="list">
-          <li class="item"><input data-k="ferm1" type="checkbox"><div class="txt"><p class="t">Dias 1–3: 18–19 °C</p><p class="d">Fermentação principal</p></div></li>
-          <li class="item"><input data-k="ferm2" type="checkbox"><div class="txt"><p class="t">Dias 4–7: deixar subir até 20 °C</p><p class="d">Finalização e limpeza</p></div></li>
-          <li class="item"><input data-k="ferm3" type="checkbox"><div class="txt"><p class="t">Acompanhar densidade até estabilizar</p><p class="d">FG alvo: ~1.012 (1.011–1.013)</p></div></li>
-          <li class="item"><input data-k="ferm4" type="checkbox"><div class="txt"><p class="t">Após FG estável: manter +2 dias</p><p class="d">Para limpar e decantar</p></div></li>
-        </ul>
-      </section>
-
-      <!-- COLD CRASH (OPTIONAL) -->
-      <section class="card">
-        <h2><span class="dot"></span> Clarificação (opcional)</h2>
-        <ul class="list">
-          <li class="item"><input data-k="clar1" type="checkbox"><div class="txt"><p class="t">Baixar para 2–5 °C por 24–72 h</p><p class="d">Cold crash, se tiver controle de frio</p></div></li>
-          <li class="item"><input data-k="clar2" type="checkbox"><div class="txt"><p class="t">Se usar gelatina, aplicar durante o cold crash</p><p class="d">Somente se for prática do seu processo</p></div></li>
-        </ul>
-      </section>
-
-      <!-- TRANSFER TO POSTMIX -->
-      <section class="card">
-        <h2><span class="dot"></span> Trasfega para postmix</h2>
-        <ul class="list">
-          <li class="item"><input data-k="keg1" type="checkbox"><div class="txt"><p class="t">Sanitizar postmix e conexões</p><p class="d">Evitar entrada de ar</p></div></li>
-          <li class="item"><input data-k="keg2" type="checkbox"><div class="txt"><p class="t">Purgar o postmix com CO₂</p><p class="d">2–3 ciclos, se possível</p></div></li>
-          <li class="item"><input data-k="keg3" type="checkbox"><div class="txt"><p class="t">Transferir pelo fundo, com cuidado com sedimento</p><p class="d">Parar antes de puxar lama grossa</p></div></li>
-        </ul>
-      </section>
-
-      <!-- CARBONATION -->
-      <section class="card">
-        <h2><span class="dot"></span> Carbonatação e serviço</h2>
-        <ul class="list">
-          <li class="item"><input data-k="carb1" type="checkbox"><div class="txt"><p class="t">Resfriar a cerveja (ideal 2–4 °C)</p><p class="d">Carbonatação fica mais previsível</p></div></li>
-          <li class="item"><input data-k="carb2" type="checkbox"><div class="txt"><p class="t">Carbonatar até nível médio (2,2–2,4 vol)</p><p class="d">Pressão/tempo conforme seu padrão</p></div></li>
-          <li class="item"><input data-k="carb3" type="checkbox"><div class="txt"><p class="t">Dar 24 h para estabilizar o gás (ideal)</p><p class="d">Depois ajustar fino de pressão</p></div></li>
-          <li class="item"><input data-k="carb4" type="checkbox"><div class="txt"><p class="t">Primeiro copo: descartar levedura da linha</p><p class="d">Serve mais limpo</p></div></li>
-        </ul>
-      </section>
-
-    </div>
-
-    <div class="foot">
-      <div><strong>Notas fixas:</strong> fundo falso com ~5 L de espaço morto • fervura 30 min • resfriamento final no fermentador • aeração só na inoculação (1–2 min).</div>
-    </div>
-  </div>
-
-  <script>
-    (function(){
-      const keyPrefix = "redale_check_full_";
-      const checks = Array.from(document.querySelectorAll('input[type="checkbox"][data-k]'));
-      const barFill = document.getElementById('barFill');
-      const pct = document.getElementById('pct');
-      const btnReset = document.getElementById('btnReset');
-      const btnPrint = document.getElementById('btnPrint');
-
-      function load(){
-        checks.forEach(cb=>{
-          const k = keyPrefix + cb.dataset.k;
-          cb.checked = localStorage.getItem(k) === "1";
-        });
-        update();
-      }
-
-      function save(cb){
-        const k = keyPrefix + cb.dataset.k;
-        localStorage.setItem(k, cb.checked ? "1" : "0");
-        update();
-      }
-
-      function update(){
-        const total = checks.length;
-        const done = checks.filter(c=>c.checked).length;
-        const p = total ? Math.round((done/total)*100) : 0;
-        barFill.style.width = p + "%";
-        pct.textContent = p + "%";
-      }
-
-      checks.forEach(cb=>cb.addEventListener('change', ()=>save(cb)));
-
-      btnReset.addEventListener('click', ()=>{
-        checks.forEach(cb=>{
-          cb.checked = false;
-          localStorage.setItem(keyPrefix + cb.dataset.k, "0");
-        });
-        update();
-      });
-
-      btnPrint.addEventListener('click', ()=>window.print());
-
-      load();
-    })();
-  </script>
+<div class="footer">
+Red Ale focada em cor vermelho rubi, corpo médio e alta drinkability.
+</div>
+</div>
 </body>
 </html>
