@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checklist de Brassagem – IPA Moderna (Juicy) Citra & Cascade (20 L)</title>
+  <style>
+    :root{
+      --bg0:#05070b; --bg1:#0b1018;
+      --card:#0f1620cc;
+      --stroke:rgba(255,255,255,.10);
+      --text:#e9eff7;
+      --muted:#a9b7c6;
+      --pill:#111a25;
+      --pillStroke:rgba(255,255,255,.12);
+      --accent:#ff6a00;
+      --ok:#34d399;
+      --warn:#fb7185;
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--text);
+      font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(255,106,0,.20), transparent 55%),
+        radial-gradient(900px 600px at 90% 20%, rgba(52,211,153,.12), transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg0));
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:22px 16px 64px;}
+    h1{margin:0 0 6px;font-size:26px;letter-spacing:.2px}
+    .sub{margin:0 0 16px;color:var(--muted)}
+    .pills{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 12px;border-radius:999px;
+      background:linear-gradient(180deg, rgba(17,26,37,.85), rgba(12,18,27,.85));
+      border:1px solid var(--pillStroke);
+      color:var(--muted); font-size:13px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    .pill b{color:var(--text);font-weight:600}
+    .topCard{
+      background:linear-gradient(180deg, rgba(15,22,32,.92), rgba(10,14,22,.92));
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      padding:16px 16px 14px;
+      box-shadow:var(--shadow);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .section{
+      background:linear-gradient(180deg, rgba(15,22,32,.92), rgba(10,14,22,.92));
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      padding:14px 14px 6px;
+      box-shadow:var(--shadow);
+    }
+    .section h2{
+      margin:2px 2px 10px;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .row{
+      display:flex; align-items:flex-start; gap:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      margin:10px 0;
+    }
+    .row:hover{border-color:rgba(255,255,255,.14)}
+    .row .txt{flex:1}
+    .title{
+      font-weight:650;
+      margin:0 0 2px;
+    }
+    .desc{margin:0;color:var(--muted);font-size:13px}
+    .cb{
+      width:20px;height:20px;margin-top:2px;
+      accent-color: var(--accent);
+      cursor:pointer;
+    }
+    .note{
+      margin:10px 0 0;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+      color:var(--muted);
+      font-size:13px;
+    }
+    .note.ok{border-left:3px solid var(--ok)}
+    .note.warn{border-left:3px solid var(--warn)}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      color:var(--text); font-size:13px;
+    }
+    .kpi span{color:var(--muted)}
+    .footer{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:12.5px;
+      padding:0 2px;
+    }
+    .actions{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:12px
+    }
+    button{
+      appearance:none;border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      color:var(--text);
+      padding:9px 12px;border-radius:12px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    button:hover{border-color:rgba(255,255,255,.18)}
+    @media (min-width: 880px){
+      .grid{grid-template-columns: 1fr 1fr;}
+      .span2{grid-column:1 / -1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Checklist de Brassagem – IPA Moderna (Juicy) Citra &amp; Cascade</h1>
+    <p class="sub">
+      20 L finais • Panela single vessel N36 • Fundo falso (5 L espaço morto) • Fervura 30 min • Fermento S-04<br>
+      Processo: resfriar até 80&nbsp;°C para whirlpool (20 min, resistência desligada), depois resfriar até inoculação. Aerar só na inoculação (nebulização 1–2 min).
+    </p>
+
+    <div class="topCard">
+      <div class="pills">
+        <div class="pill"><b>OG</b> ~1.060</div>
+        <div class="pill"><b>FG</b> ~1.013–1.015</div>
+        <div class="pill"><b>ABV</b> ~6%</div>
+        <div class="pill"><b>Perfil</b> amargor médio/baixo • aroma cítrico</div>
+        <div class="pill"><b>Aparência</b> dourado intenso • turbidez leve/média</div>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="btnReset">Zerar marcações</button>
+        <button type="button" id="btnExpand">Abrir tudo</button>
+      </div>
+
+      <div class="footer">
+        As marcações ficam salvas no navegador (localStorage). Se abrir em outro dispositivo, as marcações não vão junto.
+      </div>
+    </div>
+
+    <div class="grid" id="sections">
+      <!-- 1 -->
+      <div class="section">
+        <h2>1. Insumos – Maltes e adjuntos</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="malt_pilsen">
+          <div class="txt">
+            <p class="title">Malte Pilsen – 4,4 kg</p>
+            <p class="desc">Base limpa para o lúpulo aparecer.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="malt_trigo">
+          <div class="txt">
+            <p class="title">Malte de trigo claro – 0,7 kg</p>
+            <p class="desc">Espuma, maciez e leve turbidez.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="oats">
+          <div class="txt">
+            <p class="title">Aveia em flocos (supermercado, flocos finos) – 0,6 kg</p>
+            <p class="desc">Mouthfeel cremoso e sensação “juicy”.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="malt_munique">
+          <div class="txt">
+            <p class="title">Malte Munique – 0,4 kg</p>
+            <p class="desc">Profundidade leve, sem roubar o lúpulo.</p>
+          </div>
+        </label>
+
+        <div class="note ok">
+          Misturar bem aveia + maltes antes de adicionar no cesto. Recirculação baixa nos primeiros 10–15 min para evitar compactação.
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="section">
+        <h2>2. Insumos – Lúpulos e fermento</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="hop_magnum">
+          <div class="txt">
+            <p class="title">Magnum – 8 a 10 g</p>
+            <p class="desc">Amargor limpo no início da fervura (30 min).</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="hop_wp_citra">
+          <div class="txt">
+            <p class="title">Whirlpool 80&nbsp;°C: Citra – 40 g</p>
+            <p class="desc">Aroma e sabor (20 min, resistência desligada).</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="hop_wp_cascade">
+          <div class="txt">
+            <p class="title">Whirlpool 80&nbsp;°C: Cascade – 30 g</p>
+            <p class="desc">Cítrico e floral leve para completar o Citra.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="hop_dh">
+          <div class="txt">
+            <p class="title">Dry hop: Citra 60 g + Cascade 20 g</p>
+            <p class="desc">Adicionar no dia 3–4 com fermentação ativa. Contato 4–5 dias.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="yeast_s04">
+          <div class="txt">
+            <p class="title">Fermento S-04 – 1 sachê</p>
+            <p class="desc">18–20&nbsp;°C. Ajuda a dar corpo e sensação moderna.</p>
+          </div>
+        </label>
+
+        <div class="note warn">
+          IPA moderna sofre muito com oxigênio. Evitar abrir fermentador e evitar mexer depois do dry hop.
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="section">
+        <h2>3. Água e sais</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="water_in">
+          <div class="txt">
+            <p class="title">Água na panela – 27 L</p>
+            <p class="desc">Volume já considera o espaço morto (5 L) e drenagem sem lavagem.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="cacl2">
+          <div class="txt">
+            <p class="title">CaCl₂ – 4 g</p>
+            <p class="desc">Maciez e corpo (perfil puxado para cloreto).</p>
+          </div>
+        </label>
+
+        <div class="note">
+          Ajuste fino de sais depende da água local. Esse ponto é um empurrão seguro para “juicy” sem aspereza.
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="section">
+        <h2>4. Mostura (com recirculação)</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="heat67">
+          <div class="txt">
+            <p class="title">Aquecer até 67&nbsp;°C</p>
+            <p class="desc">Desligar antes de adicionar os grãos, para estabilizar.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="mash60">
+          <div class="txt">
+            <p class="title">Mostura 66–67&nbsp;°C por 60 min</p>
+            <p class="desc">Fluxo baixo no começo, aumentar aos poucos.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="mashout">
+          <div class="txt">
+            <p class="title">Mash-out 75–76&nbsp;°C por 10 min</p>
+            <p class="desc">Ajuda na fluidez para drenar melhor.</p>
+          </div>
+        </label>
+
+        <div class="note warn">
+          Se travar: pausar bomba, mexer de leve a cama (sem raspar fundo falso) e retomar com fluxo menor.
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="section">
+        <h2>5. Drenagem e pré-fervura</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="drain">
+          <div class="txt">
+            <p class="title">Suspender o cesto e drenar totalmente</p>
+            <p class="desc">Prensar para recuperar mais mosto.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="preboil">
+          <div class="txt">
+            <p class="title">Meta pré-fervura – ~24 L</p>
+            <p class="desc">Ajuste conforme sua perda real de fervura e trub.</p>
+          </div>
+        </label>
+
+        <div class="note">
+          Registrar volumes reais melhora as próximas receitas. No seu sistema, esse detalhe faz muita diferença.
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="section">
+        <h2>6. Fervura (30 min)</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="boil30">
+          <div class="txt">
+            <p class="title">Fervura efetiva – 30 min</p>
+            <p class="desc">Contar tempo só com fervura forte e estável.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="magnum_add">
+          <div class="txt">
+            <p class="title">Adicionar Magnum no início</p>
+            <p class="desc">8–10 g para amargor limpo.</p>
+          </div>
+        </label>
+      </div>
+
+      <!-- 7 -->
+      <div class="section span2">
+        <h2>7. Whirlpool / flameout (80&nbsp;°C – 20 min)</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="chill80">
+          <div class="txt">
+            <p class="title">Desligar resistência e resfriar até 80&nbsp;°C</p>
+            <p class="desc">Chiller ligado até bater 80&nbsp;°C, depois parar o resfriamento.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="wp_add">
+          <div class="txt">
+            <p class="title">Adicionar lúpulos do whirlpool (Citra 40 g + Cascade 30 g)</p>
+            <p class="desc">Mexer em círculo, parar e deixar o redemoinho “assentar”.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="wp_rest">
+          <div class="txt">
+            <p class="title">Descansar 20 min com tudo desligado</p>
+            <p class="desc">Sem reaquecer. Se cair para 76–74&nbsp;°C, está ideal.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="chill_final">
+          <div class="txt">
+            <p class="title">Resfriar até a temperatura de transferência</p>
+            <p class="desc">Depois do descanso, voltar com o chiller e descer até 25–30&nbsp;°C.</p>
+          </div>
+        </label>
+
+        <div class="note ok">
+          Regra simples: whirlpool moderno usa calor residual, não calor ativo.
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="section">
+        <h2>8. Transferência e resfriamento final</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="transfer">
+          <div class="txt">
+            <p class="title">Transferir para o fermentador</p>
+            <p class="desc">Mangueira no fundo para reduzir oxigenação.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="cool_ferm">
+          <div class="txt">
+            <p class="title">Completar resfriamento no fermentador</p>
+            <p class="desc">Levar até 18–19&nbsp;°C antes da inoculação.</p>
+          </div>
+        </label>
+      </div>
+
+      <!-- 9 -->
+      <div class="section">
+        <h2>9. Aeração e inoculação</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="sanitize_air">
+          <div class="txt">
+            <p class="title">Sanitizar pedra porosa e mangueira</p>
+            <p class="desc">Fervura + álcool 70 passando pelo conjunto.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="aerate">
+          <div class="txt">
+            <p class="title">Aerar 1–2 min (nebulização) e inocular S-04</p>
+            <p class="desc">Aeração só aqui. Fermentação 18–20&nbsp;°C.</p>
+          </div>
+        </label>
+      </div>
+
+      <!-- 10 -->
+      <div class="section span2">
+        <h2>10. Fermentação, dry hop e finalização</h2>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="ferm_phase1">
+          <div class="txt">
+            <p class="title">Dias 0–3/4: 18–19&nbsp;°C</p>
+            <p class="desc">Estabilidade para boa atenuação e perfil limpo.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="dryhop_add">
+          <div class="txt">
+            <p class="title">Dia 3–4: adicionar dry hop (Citra 60 g + Cascade 20 g)</p>
+            <p class="desc">Contato 4–5 dias, sem chacoalhar.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="diacetyl">
+          <div class="txt">
+            <p class="title">Últimos 2 dias: subir para 20&nbsp;°C</p>
+            <p class="desc">Finalização e limpeza.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="fg_stable">
+          <div class="txt">
+            <p class="title">Confirmar FG estável por 2 dias</p>
+            <p class="desc">Aí sim avançar para cold crash e envase.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="coldcrash">
+          <div class="txt">
+            <p class="title">Cold crash (opcional): 2–4&nbsp;°C por 48–72 h</p>
+            <p class="desc">Se quiser manter mais turbidez, reduzir tempo.</p>
+          </div>
+        </label>
+
+        <label class="row">
+          <input class="cb" type="checkbox" data-key="keg">
+          <div class="txt">
+            <p class="title">Envase e carbonatação</p>
+            <p class="desc">Purgar com CO₂ e carbonatar a frio (meta 2,3 vols).</p>
+          </div>
+        </label>
+
+        <div class="note warn">
+          Oxigênio pós-fermentação derruba aroma rápido. Purgar postmix e evitar respingos é o que mais protege o resultado.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const KEY = "checklist_ipa_moderna_juicy_20l_v1";
+      const boxes = Array.from(document.querySelectorAll("input[type=checkbox][data-key]"));
+
+      function load(){
+        let data = {};
+        try{ data = JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e){ data = {}; }
+        boxes.forEach(b => { b.checked = !!data[b.dataset.key]; });
+      }
+
+      function save(){
+        const data = {};
+        boxes.forEach(b => { data[b.dataset.key] = b.checked; });
+        localStorage.setItem(KEY, JSON.stringify(data));
+      }
+
+      boxes.forEach(b => b.addEventListener("change", save));
+
+      document.getElementById("btnReset").addEventListener("click", () => {
+        boxes.forEach(b => b.checked = false);
+        save();
+      });
+
+      // "Abrir tudo" aqui significa marcar tudo (útil quando quer imprimir/validar), mantendo o texto simples
+      document.getElementById("btnExpand").addEventListener("click", () => {
+        boxes.forEach(b => b.checked = true);
+        save();
+      });
+
+      load();
+    })();
+  </script>
+</body>
+</html>
