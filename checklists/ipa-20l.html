@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checklist de Brassagem – American IPA 20 L</title>
+  <style>
+    :root{
+      --bg:#0f1115; --card:#151821; --text:#eef2f7; --muted:#9aa3b2; --line:#2a2f3a;
+      --accent:#6aa9ff; --ok:#3ddc97;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:980px;margin:0 auto;padding:18px 16px 90px}
+    h1{margin:0 0 8px;font-size:22px;letter-spacing:.2px}
+    .meta{color:var(--muted);font-size:13px;line-height:1.45}
+    .meta strong{color:var(--text);font-weight:650}
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#0c0e13;
+      padding:8px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    .pill b{color:var(--text)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px}
+    h2{margin:0 0 10px;font-size:16px}
+    ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+    .li{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px;border:1px solid var(--line);border-radius:12px;background:#0c0e13
+    }
+    input[type="checkbox"]{width:20px;height:20px;margin-top:1px;flex:0 0 auto}
+    .txt{flex:1;min-width:0}
+    .t{margin:0;font-size:13px;line-height:1.25}
+    .m{margin:4px 0 0;font-size:12px;line-height:1.35;color:var(--muted)}
+    .formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media(max-width:640px){.formgrid{grid-template-columns:1fr}}
+    label{display:block;font-size:12px;color:var(--muted);margin:8px 0 4px}
+    input[type="text"],input[type="date"],input[type="time"],textarea{
+      width:100%;padding:10px;border-radius:12px;border:1px solid var(--line);background:#0c0e13;color:var(--text);outline:none
+    }
+    textarea{min-height:90px;resize:vertical}
+    footer{
+      position:fixed;left:0;right:0;bottom:0;background:rgba(15,17,21,.92);
+      border-top:1px solid var(--line);backdrop-filter:blur(10px)
+    }
+    .footwrap{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .bar{width:220px;max-width:70vw;height:10px;background:#0c0e13;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+    .bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--ok),var(--accent))}
+    .small{font-size:12px;color:var(--muted)}
+    @media(max-width:520px){
+      footer{position:static}
+      .wrap{padding-bottom:18px}
+      .bar{width:100%}
+    }
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    button{
+      background:#0c0e13;border:1px solid var(--line);color:var(--text);
+      padding:10px 12px;border-radius:12px;cursor:pointer
+    }
+    button.primary{border-color:rgba(106,169,255,.55); background:rgba(106,169,255,.08)}
+    button.danger{border-color:rgba(255,107,107,.55); background:rgba(255,107,107,.08)}
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+  <h1>Checklist de Brassagem – American IPA</h1>
+  <div class="meta">
+    <div><strong>20 L finais</strong> • Panela single vessel N36 • Fundo falso (5 L espaço morto) • Fervura 30 min • Fermento US‑05</div>
+    <div>Processo: resfriamento parcial no chiller (até ~30 °C), completar resfriamento no fermentador/freezer, oxigenar só na inoculação (pedra porosa + nebulizador por 4 min a 18 °C).</div>
+    <div style="margin-top:6px"><strong>OG alvo</strong> 1.056–1.058 • <strong>FG alvo</strong> 1.010–1.012 • <strong>ABV</strong> ~5,9–6,1% • <strong>Cor</strong> dourado (~6–8 SRM) • <strong>Amargor</strong> médio (~38–42 IBU)</div>
+  </div>
+
+  <div class="pillrow">
+    <div class="pill"><b>Lúpulos</b> Magnum 12 g • Citra 60–65 g • Saaz 20 g</div>
+    <div class="pill"><b>Água</b> 22 L mostura + 6,5 L lavagem (meta pré‑fervura 24 L)</div>
+    <div class="pill"><b>Opcional</b> CaCl₂ 3–4 g (dividir mostura/lavagem)</div>
+  </div>
+
+  <div class="card">
+    <h2>1. Insumos – Maltes</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="m1"><div class="txt"><p class="t">Malte Pilsen – 4,8 kg</p><p class="m">Base clara e neutra para o lúpulo aparecer.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="m2"><div class="txt"><p class="t">Malte Munique – 0,5 kg</p><p class="m">Ajuste de corpo e leve profundidade maltada.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="m3"><div class="txt"><p class="t">Malte de trigo claro – 0,3 kg</p><p class="m">Espuma e retenção.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>2. Insumos – Lúpulo e fermento</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="l1"><div class="txt"><p class="t">Magnum – 12 g (amargor)</p><p class="m">Adicionar no início da fervura (30 min).</p></div></li>
+      <li class="li"><input type="checkbox" data-k="l2"><div class="txt"><p class="t">Citra – 15 g (10 min)</p><p class="m">Sabor e início do aroma.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="l3"><div class="txt"><p class="t">Citra – 15 g (5 min)</p><p class="m">Aroma e sabor.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="l4"><div class="txt"><p class="t">Whirlpool 80 °C 20 min: Citra 15 g + Saaz 10 g</p><p class="m">Tampa fechada; mexer bem no começo e manter 20 min.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="l5"><div class="txt"><p class="t">Dry hop (dia 4–5): Citra 15–20 g + Saaz 10 g</p><p class="m">3 dias de contato; evitar oxigênio ao adicionar.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="y1"><div class="txt"><p class="t">Fermento US‑05 – 1 sachê (hidratar)</p><p class="m">Hidratar 15 min em água 25–30 °C (~110 mL). Starter não é necessário.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>3. Água e sais</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="a1"><div class="txt"><p class="t">Água de mostura: 22 L na panela</p><p class="m">Esse volume já considera seu espaço abaixo do fundo falso (não é perda).</p></div></li>
+      <li class="li"><input type="checkbox" data-k="a2"><div class="txt"><p class="t">Água de lavagem: 6,5 L a 78 °C</p><p class="m">Lavagem até bater ~24 L pré‑fervura (não passar disso para não diluir).</p></div></li>
+      <li class="li"><input type="checkbox" data-k="a3"><div class="txt"><p class="t">CaCl₂ (opcional): 3–4 g no total do lote</p><p class="m">Referência: 3 g → mostura ~2,3 g / lavagem ~0,7 g. 4 g → mostura ~3,1 g / lavagem ~0,9 g.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Mostura</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="ms1"><div class="txt"><p class="t">Adicionar malte com resistência ligada e aquecer até estabilizar em 65 °C</p><p class="m">Mexer bem nos primeiros minutos para evitar bolsões frios.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="ms2"><div class="txt"><p class="t">Quando estabilizar em 65 °C (oscila 64–65 °C), iniciar contagem de 60 minutos</p><p class="m">Esse intervalo favorece boa atenuação e deixa a IPA mais seca.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="ms3"><div class="txt"><p class="t">Mash‑out a 78 °C por 10 minutos</p><p class="m">Ajuda drenagem e eficiência.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>5. Drenagem e lavagem</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="dl1"><div class="txt"><p class="t">Suspender o cesto e drenar completamente</p><p class="m">Se quiser, prensar leve para recuperar mosto.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="dl2"><div class="txt"><p class="t">Lavar lentamente até atingir ~24 L pré‑fervura</p><p class="m">Parar a lavagem quando bater o volume alvo.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>6. Fervura – 30 minutos</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="fv1"><div class="txt"><p class="t">Iniciar fervura (30 min efetivos)</p><p class="m">Contar tempo depois que estiver fervendo de verdade.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="fv2"><div class="txt"><p class="t">Magnum 12 g no início (30')</p><p class="m">Amargor limpo e médio.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="fv3"><div class="txt"><p class="t">Citra 15 g faltando 10 min</p><p class="m">Sabor e aroma.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="fv4"><div class="txt"><p class="t">Citra 15 g faltando 5 min</p><p class="m">Aroma.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="fv5"><div class="txt"><p class="t">Desligar e resfriar para ~80 °C</p><p class="m">Preparar whirlpool.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>7. Whirlpool</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="wp1"><div class="txt"><p class="t">Whirlpool 80 °C por 20 min</p><p class="m">Adicionar Citra 15 g + Saaz 10 g. Tampa fechada.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>8. Resfriamento e transferência (seu método)</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="rs1"><div class="txt"><p class="t">Resfriar com chiller até ~30 °C</p><p class="m">Água local quente, então não forçar além disso.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="rs2"><div class="txt"><p class="t">Transferir para o fermentador sanitizado (mangueira no fundo)</p><p class="m">Reduz oxidação na transferência.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="rs3"><div class="txt"><p class="t">Levar ao freezer e baixar até 18 °C</p><p class="m">Oxigenar e inocular somente quando chegar a 18 °C.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>9. Sanitização da aeração (seu método)</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="sa1"><div class="txt"><p class="t">Ferver a pedra porosa</p><p class="m">Sanitização térmica.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="sa2"><div class="txt"><p class="t">Passar álcool 70 na pedra e mangueira</p><p class="m">Se fizer circulação, deixar o álcool atravessar mangueira + pedra.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>10. Oxigenação e inoculação</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="oi1"><div class="txt"><p class="t">Hidratar US‑05 (15 min) e deixar pronto</p><p class="m">Água 25–30 °C (~110 mL).</p></div></li>
+      <li class="li"><input type="checkbox" data-k="oi2"><div class="txt"><p class="t">Oxigenar por 4 minutos (pedra porosa + nebulizador) com o mosto a 18 °C</p><p class="m">Pedra totalmente submersa e fluxo moderado. Oxigenar antes da levedura.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="oi3"><div class="txt"><p class="t">Inocular imediatamente após a oxigenação</p><p class="m">Não oxigenar depois que a fermentação iniciar.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="oi4"><div class="txt"><p class="t">Ajustar controle para 18–19 °C</p><p class="m">Registrar data e hora.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>11. Fermentação detalhada</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="f1"><div class="txt"><p class="t">Fase ativa: 18–19 °C (primeiros 3–4 dias)</p><p class="m">Evitar abrir o fermentador.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="f2"><div class="txt"><p class="t">Dry hop no dia 4–5 por 3 dias</p><p class="m">Citra 15–20 g + Saaz 10 g.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="f3"><div class="txt"><p class="t">Subir para 20 °C por 24–48 h (limpeza)</p><p class="m">Melhora acabamento e reduz subprodutos.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="f4"><div class="txt"><p class="t">Alvo de FG: 1.010–1.012</p><p class="m">Confirmar estabilidade por 2 dias antes de avançar.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>12. Maturação e finalização</h2>
+    <ul class="chk">
+      <li class="li"><input type="checkbox" data-k="mtr1"><div class="txt"><p class="t">Cold crash (opcional)</p><p class="m">2–4 °C por 48–72 h.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="mtr2"><div class="txt"><p class="t">Envase no postmix</p><p class="m">Purgar com CO₂ antes do fechamento para reduzir oxidação.</p></div></li>
+      <li class="li"><input type="checkbox" data-k="mtr3"><div class="txt"><p class="t">Carbonatação com recirculação (1–2 °C)</p><p class="m">Sequência: 20 min a 1,5 bar → testar → se necessário +10–20 min a 2 bar. Após finalizar, manter a 1,2–1,3 bar para estabilizar por 30–60 min antes de servir. Meta: 2,2–2,4 vols de CO₂.</p></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>13. Registro do lote (preenchimento)</h2>
+    <div class="formgrid">
+      <div><label>Data</label><input id="regData" type="date" /></div>
+      <div><label>Hora (início)</label><input id="regHora" type="time" /></div>
+      <div><label>Pré-fervura (L)</label><input id="regPre" type="text" placeholder="Ex.: 24,0" /></div>
+      <div><label>No fermentador (L)</label><input id="regFer" type="text" placeholder="Ex.: 20,0" /></div>
+      <div><label>OG medida</label><input id="regOG" type="text" placeholder="Ex.: 1.057" /></div>
+      <div><label>FG final</label><input id="regFG" type="text" placeholder="Ex.: 1.011" /></div>
+      <div><label>CaCl₂ total (g)</label><input id="regCa" type="text" placeholder="Ex.: 3,0" /></div>
+      <div><label>Dry hop (data)</label><input id="regDH" type="text" placeholder="Ex.: dia 5" /></div>
+      <div><label>Pressão / temperatura na carbonatação</label><input id="regCarb" type="text" placeholder="Ex.: 1,2 bar a 2 °C" /></div>
+      <div><label>Observações rápidas</label><input id="regObs" type="text" placeholder="Ex.: aroma ótimo / OG acima do alvo" /></div>
+    </div>
+    <label>Observações detalhadas</label>
+    <textarea id="regNotas" placeholder="Registre ajustes, tempos reais, problemas, correções, resultado de espuma, etc."></textarea>
+
+    <div class="btns">
+      <button class="primary" id="btnExport">Exportar registro (JSON)</button>
+      <button id="btnImport">Importar registro (JSON)</button>
+      <button class="danger" id="btnReset">Zerar marcações</button>
+      <input id="filePicker" type="file" accept="application/json" style="display:none" />
+    </div>
+    <p class="m" style="margin-top:8px">Salvamento automático neste navegador. Para trocar de aparelho, use exportar/importar.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footwrap">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <span class="small" id="progressText">0% concluído</span>
+      <div class="bar"><div id="progressBar"></div></div>
+      <span class="small" id="countText">0/0</span>
+    </div>
+    <div class="small">CTRL+P para imprimir</div>
+  </div>
+</footer>
+
+<script>
+  const KEY = "checklist_american_ipa_20l_padrao_link";
+
+  function qs(sel){ return document.querySelector(sel); }
+  function qsa(sel){ return Array.from(document.querySelectorAll(sel)); }
+
+  function updateProgress(){
+    const boxes = qsa('input[type="checkbox"][data-k]');
+    const done = boxes.filter(b=>b.checked).length;
+    const total = boxes.length;
+    const pct = total ? Math.round((done/total)*100) : 0;
+    qs("#progressText").textContent = pct + "% concluído";
+    qs("#countText").textContent = done + "/" + total;
+    qs("#progressBar").style.width = pct + "%";
+  }
+
+  function getState(){
+    const checks = {};
+    qsa('input[type="checkbox"][data-k]').forEach(b=>checks[b.dataset.k]=b.checked);
+
+    return {
+      checks,
+      regData: qs("#regData").value,
+      regHora: qs("#regHora").value,
+      regPre: qs("#regPre").value,
+      regFer: qs("#regFer").value,
+      regOG: qs("#regOG").value,
+      regFG: qs("#regFG").value,
+      regCa: qs("#regCa").value,
+      regDH: qs("#regDH").value,
+      regCarb: qs("#regCarb").value,
+      regObs: qs("#regObs").value,
+      regNotas: qs("#regNotas").value
+    };
+  }
+
+  function setState(s){
+    if(!s) return;
+    const checks = s.checks || {};
+    qsa('input[type="checkbox"][data-k]').forEach(b=>b.checked = !!checks[b.dataset.k]);
+
+    qs("#regData").value = s.regData || "";
+    qs("#regHora").value = s.regHora || "";
+    qs("#regPre").value = s.regPre || "";
+    qs("#regFer").value = s.regFer || "";
+    qs("#regOG").value = s.regOG || "";
+    qs("#regFG").value = s.regFG || "";
+    qs("#regCa").value = s.regCa || "";
+    qs("#regDH").value = s.regDH || "";
+    qs("#regCarb").value = s.regCarb || "";
+    qs("#regObs").value = s.regObs || "";
+    qs("#regNotas").value = s.regNotas || "";
+
+    updateProgress();
+  }
+
+  function save(){
+    localStorage.setItem(KEY, JSON.stringify(getState()));
+  }
+
+  function load(){
+    try{ setState(JSON.parse(localStorage.getItem(KEY))); }catch(e){}
+  }
+
+  document.addEventListener("change",(e)=>{
+    if(e.target.matches('input[type="checkbox"][data-k]')){
+      updateProgress();
+      save();
+    }
+  });
+  document.addEventListener("input",(e)=>{
+    if(e.target.matches('#regData,#regHora,#regPre,#regFer,#regOG,#regFG,#regCa,#regDH,#regCarb,#regObs,#regNotas')) save();
+  });
+
+  qs("#btnReset").addEventListener("click",()=>{
+    localStorage.removeItem(KEY);
+    qsa('input[type="checkbox"][data-k]').forEach(b=>b.checked=false);
+    ["regData","regHora","regPre","regFer","regOG","regFG","regCa","regDH","regCarb","regObs","regNotas"]
+      .forEach(id=>qs("#"+id).value="");
+    updateProgress();
+    save();
+  });
+
+  qs("#btnExport").addEventListener("click",()=>{
+    const blob = new Blob([JSON.stringify(getState(),null,2)],{type:"application/json"});
+    const a = document.createElement("a");
+    const stamp = new Date().toISOString().slice(0,19).replaceAll(":","-");
+    a.href = URL.createObjectURL(blob);
+    a.download = "registro-american-ipa-20l-" + stamp + ".json";
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 600);
+  });
+
+  qs("#btnImport").addEventListener("click",()=>qs("#filePicker").click());
+  qs("#filePicker").addEventListener("change", async (e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    try{
+      const obj = JSON.parse(await f.text());
+      setState(obj);
+      save();
+    }catch(err){
+      alert("Arquivo inválido.");
+    }finally{
+      e.target.value = "";
+    }
+  });
+
+  load();
+  updateProgress();
+</script>
+</body>
+</html>
