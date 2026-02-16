@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#111111" />
+  <title>Checklists de Cerveja — Mestre Cervejeiro</title>
+  <style>
+    :root{
+      --bg:#0f0f12;
+      --panel:#16161b;
+      --panel2:#1c1c23;
+      --text:#f2f2f3;
+      --muted:#b7b7bf;
+      --line:rgba(255,255,255,.10);
+      --accent:#ff7a00;
+      --accent2:#38d39f;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 18% 0%, rgba(255,122,0,.20), transparent 60%),
+        radial-gradient(700px 400px at 80% 10%, rgba(56,211,159,.14), transparent 55%),
+        radial-gradient(700px 500px at 50% 110%, rgba(255,255,255,.07), transparent 65%),
+        var(--bg);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 72px}
+    header{
+      padding:20px 20px 18px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    header:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(480px 240px at 16% 15%, rgba(255,122,0,.22), transparent 55%),
+        radial-gradient(520px 280px at 92% 18%, rgba(56,211,159,.18), transparent 60%);
+      pointer-events:none;
+      opacity:.95;
+    }
+    .brand{position:relative; z-index:1; display:flex; flex-direction:column; gap:10px}
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      width:fit-content;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.2px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,122,0,.18)}
+    h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:.2px;
+      line-height:1.15;
+    }
+    .sub{margin:0;color:var(--muted);max-width:70ch;line-height:1.45}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(380px 220px at 10% 0%, rgba(255,122,0,.10), transparent 60%);
+      pointer-events:none;
+      opacity:.8;
+    }
+    .row{position:relative; z-index:1; display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+    .title{display:flex; flex-direction:column; gap:6px; min-width:240px}
+    h2{margin:0;font-size:18px; letter-spacing:.2px}
+    .meta{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+    .summary{margin:0;color:#dcdce2;font-size:13px;line-height:1.5; max-width:85ch}
+    .badges{display:flex; gap:8px; flex-wrap:wrap}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .btns{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.20);
+      text-decoration:none;
+      transition:transform .08s ease, background .18s ease, border-color .18s ease;
+      white-space:nowrap;
+      font-size:14px;
+      color:var(--text);
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.18)}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(255,122,0,.96), rgba(255,122,0,.76));
+      border-color: rgba(255,122,0,.75);
+      color:#141414;
+      font-weight:700;
+    }
+    .btn.primary:hover{background: linear-gradient(180deg, rgba(255,122,0,1), rgba(255,122,0,.84))}
+    .btn.ghost{
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+    }
+    .hr{
+      height:1px;
+      background:var(--line);
+      margin:12px 0 0;
+      position:relative; z-index:1;
+    }
+    footer{
+      margin-top:16px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.5;
+      text-align:center;
+      opacity:.95;
+    }
+    @media (min-width: 820px){
+      .card{grid-column: span 6}
+      header{padding:22px}
+      h1{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="kicker"><span class="dot"></span> Mestre Cervejeiro • Checklists</div>
+        <h1>Checklists de Cerveja</h1>
+        <p class="sub">
+          Abra no celular, marque etapas e imprima em PDF. Para adicionar novos estilos, coloque os arquivos na pasta <b>checklists</b> e atualize esta página.
+        </p>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="Lista de checklists">
+      <!-- Red Ale Rubi -->
+      <article class="card">
+        <div class="row">
+          <div class="title">
+            <h2>Red Ale Rubi (20 L)</h2>
+            <p class="summary">Cerveja avermelhada, com malte em destaque, leve toque caramelado e amargor moderado para equilibrar. Corpo médio, boa espuma e final limpo.</p>
+            <div class="badges">
+              <span class="badge">Fundo falso • Espaço morto ~5 L</span>
+              <span class="badge">Fervura 30 min</span>
+              <span class="badge">Aeração por nebulização</span>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn primary" href="./checklists/red-ale-20l.html">Abrir checklist</a>
+            <a class="btn ghost" href="./checklists/red-ale-20l.html#11">Ir para fermentação</a>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <p class="meta">Arquivo: <b>checklists/red-ale-20l.html</b></p>
+      </article>
+
+      <!-- Brahma Chopp -->
+      <article class="card">
+        <div class="row">
+          <div class="title">
+            <h2>Brahma Chopp (20 L)</h2>
+            <p class="summary">Lager bem leve e fácil de beber, com perfil limpo, malte suave e amargor baixo. Foco em alta drinkability e final seco.</p>
+            <div class="badges">
+              <span class="badge">Lager leve • Amargor baixo</span>
+              <span class="badge">Perfil limpo</span>
+              <span class="badge">Final seco</span>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn primary" href="./checklists/brahma-20l.html">Abrir checklist</a>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <p class="meta">Arquivo: <b>checklists/brahma-20l.html</b></p>
+      </article>
+
+      <!-- American IPA -->
+      <article class="card">
+        <div class="row">
+          <div class="title">
+            <h2>American IPA (20 L)</h2>
+            <p class="summary">IPA com amargor médio a alto e foco em sabor/aroma de lúpulos cítricos e resinosos. Corpo médio‑leve e final mais seco para realçar o lúpulo.</p>
+            <div class="badges">
+              <span class="badge">Fervura 30 min</span>
+              <span class="badge">Whirlpool + dry hop</span>
+              <span class="badge">Fermento US‑05</span>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn primary" href="./checklists/ipa-20l.html">Abrir checklist</a>
+            <a class="btn ghost" href="./checklists/ipa-20l.html#7">Ir para whirlpool</a>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <p class="meta">Arquivo: <b>checklists/ipa-20l.html</b></p>
+      </article>
+
+      <!-- Schwarzbier -->
+      <article class="card">
+        <div class="row">
+          <div class="title">
+            <h2>Schwarzbier (20 L)</h2>
+            <p class="summary">Lager escura e bem limpa: cor preta com brilho rubi, notas suaves de pão tostado e chocolate leve, sem queimar nem ficar pesada. Amargor baixo a médio e final seco.</p>
+            <div class="badges">
+              <span class="badge">Lager escura • Perfil limpo</span>
+              <span class="badge">Tostado leve</span>
+              <span class="badge">Final seco</span>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn primary" href="./checklists/schwarzbier-20l.html">Abrir checklist</a>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <p class="meta">Arquivo: <b>checklists/schwarzbier-20l.html</b></p>
+      </article>
+
+      <!-- Mantidos como reservados (igual estava) -->
+      <article class="card">
+        <div class="row">
+          <div class="title">
+            <h2>Stout (20 L)</h2>
+            <p class="summary">Página reservada para checklist futuro.</p>
+            <div class="badges">
+              <span class="badge">Reservado</span>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn" href="./checklists/stout-20l.html">Abrir página</a>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <p class="meta">Arquivo: <b>checklists/stout-20l.html</b></p>
+      </article>
+
+      <article class="card">
+        <div class="row">
+          <div class="title">
+            <h2>Weiss (20 L)</h2>
+            <p class="summary">Página reservada para checklist futuro.</p>
+            <div class="badges">
+              <span class="badge">Reservado</span>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn" href="./checklists/weiss-20l.html">Abrir página</a>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <p class="meta">Arquivo: <b>checklists/weiss-20l.html</b></p>
+      </article>
+    </section>
+
+    <footer>
+      Ao publicar: substitua o arquivo <b>index.html</b> na raiz do repositório. Os checklists ficam dentro da pasta <b>checklists/</b>.
+    </footer>
+  </div>
+</body>
+</html>
