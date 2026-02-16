@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checklist — Brahma 1.0</title>
+  <style>
+    :root{
+      --bg: #0f1116;
+      --panel: #151826;
+      --panel2:#0f1320;
+      --card:#121529;
+      --muted:#aab0c0;
+      --text:#eef0f6;
+      --border: rgba(255,255,255,.08);
+      --accent:#ffb84a;
+      --accent2:#d9962a;
+      --good:#5bd68b;
+      --warn:#ffcc66;
+      --bad:#ff6b6b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,184,74,.16), transparent 55%),
+                  radial-gradient(900px 600px at 80% 10%, rgba(91,214,139,.10), transparent 55%),
+                  linear-gradient(180deg, #0b0d12, #0f1116 40%, #0b0d12);
+      color: var(--text);
+    }
+    a{color:inherit}
+    .app{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 14px 40px;
+      display:grid;
+      grid-template-columns: 270px 1fr;
+      gap: 14px;
+    }
+    
+    @media (max-width: 980px){
+      .app{display:flex; flex-direction:column;}
+      .sidebar{position:static; top:auto; order:2;}
+      .main{order:1;}
+    }
+/* Header */
+    .topbar{
+      grid-column: 1 / -1;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(21,24,38,.9), rgba(15,19,32,.75));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 10px;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:12px;
+      background: radial-gradient(circle at 30% 25%, #fff3d6, var(--accent));
+      box-shadow: 0 10px 25px rgba(255,184,74,.22);
+      display:flex;align-items:center;justify-content:center;
+      color:#201401;font-weight:800;letter-spacing:.04em;
+    }
+    .title{
+      min-width: 0;
+    }
+    .title h1{
+      margin:0;
+      font-size: 1.02rem;
+      line-height: 1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .title .sub{
+      margin-top:4px;
+      color: var(--muted);
+      font-size: .82rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .actions{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .btn{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      padding: 9px 11px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-weight: 650;
+      font-size: .86rem;
+      transition: transform .06s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{background: rgba(255,255,255,.06); border-color: rgba(255,184,74,.35);}
+    .btn:active{transform: translateY(1px);}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(255,184,74,.20), rgba(255,184,74,.10));
+      border-color: rgba(255,184,74,.35);
+    }
+    .btn.danger{
+      border-color: rgba(255,107,107,.35);
+    }
+
+    /* Sidebar */
+    .sidebar{
+      position: sticky;
+      top: 86px;
+      align-self:start;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(21,24,38,.9), rgba(15,19,32,.75));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .side-head{
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .kpi .box{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 10px;
+    }
+    .kpi .label{
+      font-size:.70rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing:.08em;
+    }
+    .kpi .value{
+      margin-top: 4px;
+      font-weight: 800;
+      font-size: .98rem;
+    }
+    .progress-wrap{
+      padding: 12px 14px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .progress-row{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin-bottom: 8px;
+    }
+    .progress-row .ptext{
+      color: var(--muted);
+      font-size: .82rem;
+    }
+    .bar{
+      height: 10px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow:hidden;
+    }
+    .bar > div{
+      height:100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #ffd083);
+      border-radius: 999px;
+      transition: width .2s ease;
+    }
+    .nav{
+      padding: 10px 8px 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+    .nav a{
+      text-decoration:none;
+      padding: 9px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: .88rem;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+    }
+    .nav a:hover{
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.08);
+      color: var(--text);
+    }
+    .chip{
+      font-size: .74rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      white-space:nowrap;
+    }
+
+    /* Main */
+    .main{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(21,24,38,.72), rgba(15,19,32,.60));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .main-inner{ padding: 14px 14px 18px; }
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 980px){
+      .cards{grid-template-columns:1fr}
+    }
+    .card{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 12px;
+    }
+    .card h3{
+      margin:0 0 8px 0;
+      font-size: .95rem;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+    }
+    .muted{color: var(--muted);}
+    .grid2{
+      display:grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    @media (max-width: 640px){ .grid2{grid-template-columns:1fr;} }
+    .field{
+      background: rgba(0,0,0,.18);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 10px;
+    }
+    .field label{
+      display:block;
+      font-size:.70rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing:.08em;
+      margin-bottom: 6px;
+    }
+    .field input, .field textarea{
+      width:100%;
+      background: transparent;
+      border: none;
+      outline:none;
+      color: var(--text);
+      font-size: .92rem;
+      font-weight: 650;
+    }
+    .field textarea{
+      min-height: 70px;
+      resize: vertical;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .section{
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.02);
+      overflow:hidden;
+    }
+    .section-head{
+      padding: 12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,184,74,.10), rgba(255,255,255,0));
+    }
+    .section-head h2{
+      margin:0;
+      font-size: .98rem;
+    }
+    .section-body{
+      padding: 10px 12px 12px;
+    }
+    .item{
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      padding: 8px 8px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .item:hover{
+      background: rgba(255,255,255,.03);
+      border-color: rgba(255,255,255,.06);
+    }
+    .item input[type="checkbox"]{
+      width: 18px; height: 18px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      flex: 0 0 auto;
+    }
+    .itext{min-width:0}
+    .itext .t{
+      font-weight: 750;
+      font-size: .90rem;
+      margin:0;
+    }
+    .itext .d{
+      margin: 3px 0 0 0;
+      color: var(--muted);
+      font-size: .84rem;
+      line-height: 1.35;
+    }
+    .smallnote{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    /* Print */
+    @media print{
+      body{background:#fff; color:#000}
+      .topbar,.sidebar{display:none}
+      .app{grid-template-columns:1fr; max-width:none; padding:0}
+      .main{box-shadow:none; border:none; background:#fff}
+      .card,.section{break-inside: avoid;}
+      .field{background:#fff}
+      .muted{color:#333}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">B1</div>
+        <div class="title">
+          <h1>Brahma 1.0 — Sem AMG</h1>
+          <div class="sub">Mostura 67 °C • Saaz 10 g • Starter NovaLager (agitador)</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="btnPrint">Imprimir</button>
+        <button class="btn" id="btnExport">Exportar JSON</button>
+        <button class="btn danger" id="btnReset">Zerar marcações</button>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="kpi">
+          <div class="box">
+            <div class="label">Grãos</div>
+            <div class="value">7,5 kg</div>
+          </div>
+          <div class="box">
+            <div class="label">Fervura</div>
+            <div class="value">30 min</div>
+          </div>
+          <div class="box">
+            <div class="label">Água inicial</div>
+            <div class="value">25 L</div>
+          </div>
+          <div class="box">
+            <div class="label">Lavagem</div>
+            <div class="value">4–5 L</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-row">
+          <div class="ptext">Progresso</div>
+          <div class="ptext" id="progressText">0%</div>
+        </div>
+        <div class="bar"><div id="progressBar"></div></div>
+        <div class="smallnote" id="countText">0 de 0 itens marcados</div>
+      </div>
+
+      <nav class="nav">
+        <a href="#insumos">Insumos <span class="chip">malte / água</span></a>
+        <a href="#preparo">Preparação <span class="chip">sanitização</span></a>
+        <a href="#mostura">Mostura <span class="chip">67 °C</span></a>
+        <a href="#lavagem">Lavagem <span class="chip">sparge</span></a>
+        <a href="#fervura">Fervura <span class="chip">Saaz</span></a>
+        <a href="#starter">Starter <span class="chip">NovaLager</span></a>
+        <a href="#resfriamento">Resfriamento <span class="chip">inoculação</span></a>
+        <a href="#fermentacao">Fermentação <span class="chip">14–15 °C</span></a>
+        <a href="#cold">Cold crash <span class="chip">2 °C</span></a>
+              <a href="#registro-final">Registro <span class="chip">data / OG / FG</span></a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="main-inner">
+
+        <div class="cards" id="dados">
+          <div class="card">
+            <h3>Metas <span class="chip">perfil Brahma</span></h3>
+            <div class="grid2">
+              <div class="field">
+                <label>OG alvo</label>
+                <input value="1.038 – 1.040" readonly />
+              </div>
+              <div class="field">
+                <label>FG alvo</label>
+                <input value="1.006 – 1.008" readonly />
+              </div>
+              <div class="field">
+                <label>ABV estimado</label>
+                <input value="4,2 – 4,5%" readonly />
+              </div>
+              <div class="field">
+                <label>IBU estimado</label>
+                <input value="baixo (Saaz 10 g)" readonly />
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Registro do lote <span class="chip">preencher</span></h3>
+            <div class="grid2">
+              <div class="field">
+                <label>Data da brassagem</label>
+                <input id="fldData" placeholder="Ex.: 16/02/2026" />
+              </div>
+              <div class="field">
+                <label>Volume no fermentador</label>
+                <input id="fldVol" placeholder="Ex.: 20 L" />
+              </div>
+              <div class="field">
+                <label>OG medida</label>
+                <input id="fldOG" placeholder="Ex.: 1.039" />
+              </div>
+              <div class="field">
+                <label>FG medida</label>
+                <input id="fldFG" placeholder="Ex.: 1.007" />
+              </div>
+              <div class="field" style="grid-column: 1 / -1;">
+                <label>Observações</label>
+                <textarea id="fldObs" placeholder="Anotações rápidas: clarificação, aroma, perdas, ajustes..."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="insumos">
+          <div class="section-head">
+            <h2>Insumos e parâmetros</h2>
+            <span class="chip">sem AMG</span>
+          </div>
+          <div class="section-body">
+            <div class="grid2">
+              <div class="field">
+                <label>Grãos</label>
+                <input value="6,0 kg Pilsen • 1,0 kg Flocão • 0,5 kg Trigo" readonly />
+              </div>
+              <div class="field">
+                <label>Água</label>
+                <input value="25 L inicial • 4–5 L lavagem" readonly />
+              </div>
+              <div class="field">
+                <label>Correção</label>
+                <input value="CaCl₂ 3 g na mostura" readonly />
+              </div>
+              <div class="field">
+                <label>Lúpulo</label>
+                <input value="Saaz 10 g (30 min)" readonly />
+              </div>
+              <div class="field">
+                <label>Mostura</label>
+                <input value="67 °C (60 min) • 75 °C (20 min)" readonly />
+              </div>
+              <div class="field">
+                <label>Fermentação</label>
+                <input value="NovaLager • 14–15 °C • diacetil 19 °C (48 h)" readonly />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist sections -->
+        <div class="section" id="preparo">
+          <div class="section-head"><h2>Preparação</h2><span class="chip">antes de tudo</span></div>
+          <div class="section-body checklist" data-section="preparo">
+            <div class="item"><input type="checkbox" data-id="p1"><div class="itext"><p class="t">Sanitizar o que encosta no mosto frio</p><p class="d">Fermentador, tampa, airlock, mangueiras, pedra porosa, conexões, colher, erlenmeyer do starter.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="p2"><div class="itext"><p class="t">Moer os grãos</p><p class="d">Moagem média para cesto, sem virar farinha para não travar recirculação.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="p3"><div class="itext"><p class="t">Separar insumos</p><p class="d">CaCl₂ 3 g • Saaz 10 g • antiespumante (opcional) • fermento NovaLager.</p></div></div>
+          </div>
+        </div>
+
+        <div class="section" id="mostura">
+          <div class="section-head"><h2>Mostura</h2><span class="chip">67 °C</span></div>
+          <div class="section-body checklist" data-section="mostura">
+            <div class="item"><input type="checkbox" data-id="m1"><div class="itext"><p class="t">Adicionar 25 L de água na panela</p><p class="d">Na tua região a água já vem quente; isso ajuda a ganhar tempo.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="m2"><div class="itext"><p class="t">Adicionar o malte enquanto aquece</p><p class="d">Mexer bem no começo para desfazer grumos e evitar bolsões secos.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="m3"><div class="itext"><p class="t">Adicionar CaCl₂ 3 g</p><p class="d">Colocar na mostura, já com tudo bem misturado.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="m4"><div class="itext"><p class="t">Manter 67 °C por 60 min</p><p class="d">Recirculação com fluxo suave; ligar a bomba quando o mosto já estiver bem fluido.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="m5"><div class="itext"><p class="t">Mash-out: 75 °C por 20 min</p><p class="d">Ajuda a reduzir viscosidade e melhora extração no sparge.</p></div></div>
+          </div>
+        </div>
+
+        <div class="section" id="lavagem">
+          <div class="section-head"><h2>Lavagem</h2><span class="chip">4–5 L</span></div>
+          <div class="section-body checklist" data-section="lavagem">
+            <div class="item"><input type="checkbox" data-id="l1"><div class="itext"><p class="t">Suspender o cesto e drenar</p><p class="d">Deixar escorrer alguns minutos antes de começar a lavagem.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="l2"><div class="itext"><p class="t">Lavar com 4–5 L a 75–78 °C</p><p class="d">Derramar aos poucos por cima do malte, sem canalizar.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="l3"><div class="itext"><p class="t">Meta de volume pré-fervura</p><p class="d">Alvo prático: ~30–32 L antes de iniciar a fervura.</p></div></div>
+          </div>
+        </div>
+
+        <div class="section" id="fervura">
+          <div class="section-head"><h2>Fervura</h2><span class="chip">30 min</span></div>
+          <div class="section-body checklist" data-section="fervura">
+            <div class="item"><input type="checkbox" data-id="f1"><div class="itext"><p class="t">Iniciar fervura forte e contar 30 min</p><p class="d">Contagem começa quando estiver fervendo de verdade.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="f2"><div class="itext"><p class="t">Adicionar Saaz 10 g</p><p class="d">Carga única para amargor baixo e limpo.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="f3"><div class="itext"><p class="t">Opcional: antiespumante</p><p class="d">Usar só se estiver subindo espuma demais.</p></div></div>
+          </div>
+        </div>
+
+        <div class="section" id="starter">
+          <div class="section-head"><h2>Starter NovaLager</h2><span class="chip">agitador</span></div>
+          <div class="section-body checklist" data-section="starter">
+            <div class="item"><input type="checkbox" data-id="s1"><div class="itext"><p class="t">Retirar 1 L de mosto para o starter</p><p class="d">Tirar após mostura, antes da fervura principal.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="s2"><div class="itext"><p class="t">Ferver esse 1 L por 15 min</p><p class="d">No erlenmeyer ou panela; esfriar depois para 18–20 °C.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="s3"><div class="itext"><p class="t">Inocular a NovaLager no mosto do starter</p><p class="d">Levedura antiga pede starter; manter tudo sanitizado.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="s4"><div class="itext"><p class="t">Agitador magnético por 12–16 h</p><p class="d">Manter girando até o mosto principal chegar na temperatura de inoculação.</p></div></div>
+          </div>
+        </div>
+
+        <div class="section" id="resfriamento">
+          <div class="section-head"><h2>Resfriamento e inoculação</h2><span class="chip">14–15 °C</span></div>
+          <div class="section-body checklist" data-section="resfriamento">
+            <div class="item"><input type="checkbox" data-id="r1"><div class="itext"><p class="t">Resfriar o mosto principal até ~30 °C</p><p class="d">Depois transferir para o fermentador e colocar no freezer para descer até 14–15 °C.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="r2"><div class="itext"><p class="t">Aerar com pedra porosa</p><p class="d">2–3 minutos. Se espumar muito, usar antiespumante.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="r3"><div class="itext"><p class="t">Inocular o starter ativo</p><p class="d">Somente quando o mosto estiver na temperatura de inoculação.</p></div></div>
+          </div>
+        </div>
+
+        <div class="section" id="fermentacao">
+          <div class="section-head"><h2>Fermentação</h2><span class="chip">controle</span></div>
+          <div class="section-body checklist" data-section="fermentacao">
+            <div class="item"><input type="checkbox" data-id="fe1"><div class="itext"><p class="t">Fermentar a 14–15 °C</p><p class="d">Segurar até estabilizar densidade e o perfil ficar limpo.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="fe2"><div class="itext"><p class="t">Descanso de diacetil</p><p class="d">Subir gradualmente até 19 °C e manter por 48 h.</p></div></div>
+          </div>
+        </div>
+
+        <div class="section" id="cold">
+          <div class="section-head"><h2>Cold crash</h2><span class="chip">2 °C</span></div>
+          <div class="section-body checklist" data-section="cold">
+            <div class="item"><input type="checkbox" data-id="c1"><div class="itext"><p class="t">Descer até 2 °C</p><p class="d">Baixar gradualmente até 2 °C e manter por 48 h.</p></div></div>
+            <div class="item"><input type="checkbox" data-id="c2"><div class="itext"><p class="t">Pronto para trasfega e carbonatação</p><p class="d">Depois do cold, transferir para o postmix e seguir teu método de carbonatação.</p></div></div>
+          </div>
+        </div>
+
+        <div class="smallnote" style="margin-top:12px;">
+          Salva automaticamente as marcações e campos neste navegador.
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const KEY = "checklist_brahma_1_0_v1";
+
+    function qs(sel, el=document){ return el.querySelector(sel); }
+    function qsa(sel, el=document){ return Array.from(el.querySelectorAll(sel)); }
+
+    function loadState(){
+      try{
+        return JSON.parse(localStorage.getItem(KEY) || "{}");
+      }catch(e){ return {}; }
+    }
+    function saveState(state){
+      localStorage.setItem(KEY, JSON.stringify(state));
+    }
+
+    function applyState(){
+      const state = loadState();
+
+      // fields
+      const mapFields = ["fldData","fldVol","fldOG","fldFG","fldObs"];
+      for (const id of mapFields){
+        const el = qs("#"+id);
+        if(!el) continue;
+        if(state[id] !== undefined) el.value = state[id];
+        el.addEventListener("input", () => {
+          const s = loadState();
+          s[id] = el.value;
+          saveState(s);
+        });
+      }
+
+      // checkboxes
+      const boxes = qsa('input[type="checkbox"][data-id]');
+      for (const cb of boxes){
+        const id = cb.getAttribute("data-id");
+        cb.checked = !!(state.checks && state.checks[id]);
+        cb.addEventListener("change", () => {
+          const s = loadState();
+          s.checks = s.checks || {};
+          s.checks[id] = cb.checked;
+          saveState(s);
+          updateProgress();
+        });
+      }
+
+      updateProgress();
+    }
+
+    function updateProgress(){
+      const boxes = qsa('input[type="checkbox"][data-id]');
+      const total = boxes.length;
+      const done = boxes.filter(b => b.checked).length;
+      const pct = total ? Math.round((done/total)*100) : 0;
+      qs("#progressBar").style.width = pct + "%";
+      qs("#progressText").textContent = pct + "%";
+      qs("#countText").textContent = done + " de " + total + " itens marcados";
+    }
+
+    function resetAll(){
+      localStorage.removeItem(KEY);
+      // clear UI
+      qsa('input[type="checkbox"][data-id]').forEach(b => b.checked = false);
+      ["fldData","fldVol","fldOG","fldFG","fldObs"].forEach(id => {
+        const el = qs("#"+id);
+        if(el) el.value = "";
+      });
+      updateProgress();
+    }
+
+    function exportJSON(){
+      const state = loadState();
+      const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "brahma-1-0-checklist.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+
+    qs("#btnPrint").addEventListener("click", () => window.print());
+    qs("#btnReset").addEventListener("click", () => resetAll());
+    qs("#btnExport").addEventListener("click", () => exportJSON());
+
+    applyState();
+  </script>
+</body>
+</html>
