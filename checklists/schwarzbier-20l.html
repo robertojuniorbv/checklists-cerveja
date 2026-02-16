@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Checklist - Schwarzbier 19L</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --bg:#111;
+      --card:#1c1c1c;
+      --card2:#222;
+      --text:#f2f2f2;
+      --muted:#c9c9d3;
+      --accent:#d4af37;
+      --line:rgba(255,255,255,.08);
+    }
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:20px;line-height:1.45}
+    h1{color:var(--accent);margin:0 0 10px}
+    h2{color:var(--accent);margin:0 0 10px;font-size:18px}
+    .meta{background:var(--card2);padding:12px;border-left:4px solid var(--accent);margin:0 0 18px;border-radius:10px}
+    .meta div{margin:3px 0}
+    .box{background:var(--card);border-radius:12px;padding:15px;margin-bottom:16px;border:1px solid var(--line)}
+    ul{list-style:none;padding:0;margin:0}
+    li{margin:9px 0;display:flex;align-items:flex-start}
+    input[type=checkbox]{margin-right:10px;margin-top:2px;accent-color:var(--accent);min-width:18px;min-height:18px}
+    .small{color:var(--muted);font-size:13px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+    .tag{display:inline-block;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.35);color:var(--accent);
+      padding:2px 8px;border-radius:999px;font-size:12px;margin-left:6px}
+    .hr{height:1px;background:var(--line);margin:14px 0}
+  </style>
+</head>
+<body>
+
+<h1>Checklist – Schwarzbier 19L</h1>
+
+<div class="meta">
+  <div><strong>Perfil:</strong> Lager escura leve e seca (sensação de “Pilsen escura”)</div>
+  <div><strong>OG:</strong> ~1.047 | <strong>FG:</strong> 1.009–1.011 | <strong>ABV:</strong> ~4,7% | <strong>IBU:</strong> 22</div>
+  <div><strong>Eficiência:</strong> 65% | <strong>Fervura:</strong> 30 min</div>
+</div>
+
+<div class="box">
+  <h2>1. Maltes (Total: 5,0 kg)</h2>
+  <ul>
+    <li><input type="checkbox"><div>4,2 kg Malte Pilsen</div></li>
+    <li><input type="checkbox"><div>350 g Malte Munique</div></li>
+    <li><input type="checkbox"><div>200 g Caramunich II</div></li>
+    <li><input type="checkbox"><div>250 g Carafa III (sem casca) — moer separado, usar só no final</div></li>
+    <li><input type="checkbox"><div>Moer os maltes base juntos (Pilsen + Munique + Caramunich)</div></li>
+    <li><input type="checkbox"><div>Moer o Carafa III separado</div></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>2. Água e sais</h2>
+  <ul>
+    <li><input type="checkbox"><div>23 L para mostura</div></li>
+    <li><input type="checkbox"><div>5 L para sparge leve a 78°C</div></li>
+    <li><input type="checkbox"><div>Adicionar 4 g de Cloreto de Cálcio (CaCl₂) na água da mostura</div></li>
+  </ul>
+  <div class="small">Sparge leve recomendado para o seu sistema (evita lotar a panela e melhora previsibilidade).</div>
+</div>
+
+<div class="box">
+  <h2>3. Mostura</h2>
+  <ul>
+    <li><input type="checkbox"><div>Estabilizar em 62°C</div></li>
+    <li><input type="checkbox"><div>62°C por 60 min</div></li>
+    <li><input type="checkbox"><div>Subir para 72°C</div></li>
+    <li><input type="checkbox"><div>72°C por 10 min</div></li>
+    <li><input type="checkbox"><div>Mash out: 78°C por 5 min</div></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>4. Carafa no final (cor sem aspereza)</h2>
+  <ul>
+    <li><input type="checkbox"><div>Adicionar 250 g Carafa III após o mash out <span class="tag">final</span></div></li>
+    <li><input type="checkbox"><div>Recircular por 4 min</div></li>
+    <li><input type="checkbox"><div>Drenar imediatamente para a panela de fervura</div></li>
+    <li><input type="checkbox"><div>Sparge leve: 5 L a 78°C</div></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>5. Starter (após a mostura, antes da fervura principal)</h2>
+  <ul>
+    <li><input type="checkbox"><div>Retirar 1 L de mosto (no final da mostura, antes da fervura principal)</div></li>
+    <li><input type="checkbox"><div>Ferver esse 1 L separado por 15 min</div></li>
+    <li><input type="checkbox"><div>Resfriar até ~20°C e transferir para erlenmeyer sanitizado</div></li>
+    <li><input type="checkbox"><div>Inocular o sachê inteiro de NovaLager no starter</div></li>
+    <li><input type="checkbox"><div>Agitador magnético por 12–18 h</div></li>
+  </ul>
+  <div class="small">No dia seguinte, inocular o starter inteiro no mosto frio (não dividir).</div>
+</div>
+
+<div class="box">
+  <h2>6. Fervura (30 min)</h2>
+  <ul>
+    <li><input type="checkbox"><div>Início: 18 g Magnum</div></li>
+    <li><input type="checkbox"><div>10 min finais: 10 g Saaz</div></li>
+    <li><input type="checkbox"><div>10 min finais: 1 g Whirlfloc</div></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>7. Resfriamento (seu limite: até 30°C)</h2>
+  <ul>
+    <li><input type="checkbox"><div>Resfriar com chiller até ~30°C</div></li>
+    <li><input type="checkbox"><div>Transferir para o fermentador</div></li>
+    <li><input type="checkbox"><div>Levar para geladeira/freezer e baixar até 15–16°C</div></li>
+  </ul>
+  <div class="small">Aqui ainda não entra aeração e nem levedura.</div>
+</div>
+
+<div class="box">
+  <h2>8. Aeração + inoculação (no momento de fermentar)</h2>
+  <ul>
+    <li><input type="checkbox"><div>Confirmar mosto entre 14–15°C</div></li>
+    <li><input type="checkbox"><div>Aerar: pedra 2 micra + nebulizador por 60–90 s</div></li>
+    <li><input type="checkbox"><div>Agitar o starter e inocular o volume inteiro</div></li>
+    <li><input type="checkbox"><div>Programar controlador para 14–15°C</div></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>9. Fermentação (cronograma)</h2>
+  <div class="small" style="border-top:none;padding-top:0;margin-top:0">
+    Use o tempo como referência e confirme pelo andamento (queda de densidade/atividade). Lager fica mais limpa quando segue as transições no momento certo.
+  </div>
+  <div class="hr"></div>
+  <ul>
+    <li><input type="checkbox"><div><strong>Fermentação principal:</strong> 14–15°C por 6–10 dias <span class="tag">meta</span><br>
+      <span class="small" style="border-top:none;margin-top:6px;padding-top:0">
+        Troca de fase quando a densidade estiver a 2–4 pontos da FG esperada (perto de 1.012–1.013).
+      </span>
+    </div></li>
+
+    <li><input type="checkbox"><div><strong>Descanso de diacetil:</strong> subir para 19°C e manter por 48 h<br>
+      <span class="small" style="border-top:none;margin-top:6px;padding-top:0">
+        Ajuda a “limpar” aroma amanteigado e finalizar atenuação.
+      </span>
+    </div></li>
+
+    <li><input type="checkbox"><div><strong>Cold crash (descida gradual):</strong> reduzir 2–3°C a cada 6–12 h até 2–3°C<br>
+      <span class="small" style="border-top:none;margin-top:6px;padding-top:0">
+        Exemplo: 19 → 15 → 12 → 9 → 6 → 3°C.
+      </span>
+    </div></li>
+
+    <li><input type="checkbox"><div><strong>Clarificação a frio:</strong> manter 2–3°C por 72 h (3 dias)</div></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>10. Carbonatação (recirculação)</h2>
+  <ul>
+    <li><input type="checkbox"><div>Transferir para o postmix</div></li>
+    <li><input type="checkbox"><div>2–4°C | 2 bar</div></li>
+    <li><input type="checkbox"><div>Recircular com bomba por 2–3 h</div></li>
+    <li><input type="checkbox"><div>Descansar 24 h para estabilizar o gás</div></li>
+  </ul>
+  <div class="small">Meta: 2,4–2,5 volumes de CO₂. Resultado esperado: preta com reflexo rubi, final seco e muito fácil de beber.</div>
+</div>
+
+</body>
+</html>
